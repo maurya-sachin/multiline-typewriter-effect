@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        /* Styling for the webpage */
         body {
             font-family: monospace;
             font-weight: 700;
@@ -15,6 +16,7 @@
             color: #00DFFC
         }
 
+        /* Styling for the typewriter effect */
         .type {
             color: #0000;
             background:
@@ -25,11 +27,14 @@
             background-clip: padding-box, text;
             background-repeat: no-repeat;
             animation:
+                /* Uncomment the following line to add a blinking effect */
                 /* b .7s infinite steps(1), */
                 t calc(var(--n)*.15s) steps(var(--n)) forwards;
         }
 
         @keyframes t {
+
+            /* Typewriter animation keyframes */
             from {
                 background-size: 0 200%
             }
@@ -45,10 +50,11 @@
 </head>
 
 <body>
+    <!-- Element for the typewriter effect -->
     <span class="type" id="typewriter" style="--n:1000"></span>
 
     <script>
-        // Function to fetch text from API
+        // Function to fetch text from the Cat Fact API
         async function fetchText() {
             try {
                 const response = await fetch('https://catfact.ninja/fact');
@@ -60,7 +66,7 @@
             }
         }
 
-        // Function to update typewriter text
+        // Function to update the typewriter text
         async function updateTypewriter() {
             const typewriterElement = document.getElementById('typewriter');
             const text = await fetchText();
